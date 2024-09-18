@@ -97,6 +97,15 @@ To get started with this project, follow these steps:
 4. **Error Handling**
 
    - View error messages and troubleshooting tips in the console or UI.
+  
+## **Env Variable**
+
+```bash
+PORT=...
+MONGO_DB_URI=...
+JWT_SECRET=...
+NODE_ENV=...
+```
 
 ## 📈 Deployment
 
