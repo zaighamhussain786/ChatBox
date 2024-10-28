@@ -6,6 +6,12 @@ export const signup = async (req, res) => {
   try {
     const { fullName, userName, password, confirmPassword, gender } = req.body;
 
+    if (fullName.length < 3) {
+      return res
+        .status(400)
+        .json({ error: "Full name must be atleast 3 characters" });
+    }
+
     if (password !== confirmPassword) {
       return res.status(400).json({ error: "Passwords don't match" });
     }
@@ -14,6 +20,12 @@ export const signup = async (req, res) => {
 
     if (user) {
       return res.status(400).json({ error: "UserName already exists" });
+    }
+
+    if (userName.length < 3) {
+      return res
+        .status(400)
+        .json({ error: "Username must be atleast 3 characters" });
     }
 
     // HASHING PASSWORD BY USING BCRYPTJS
@@ -42,19 +54,19 @@ export const signup = async (req, res) => {
       // GENERATE TOKEN
       generateTokenAndSetCookie(newUser._id, res);
       // GIVING RESPONSE TO BROWSER
-      res.status(201).json({
+      return res.status(201).json({
         _id: newUser._id,
         fullName: newUser.fullName,
         userName: newUser.userName,
         profilePic: newUser.profilePic,
       });
     } else {
-      res.status(400).json({ error: "Invalid User's Data" });
+      return res.status(400).json({ error: "Invalid User's Data" });
     }
   } catch (error) {
     console.log("Error In Signup Controller", error.message);
 
-    res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
@@ -67,13 +79,13 @@ export const login = async (req, res) => {
       user?.password || ""
     );
 
-    if (!userName || !password) {
-      res.status(400).json({ error: "Invalid Username or Password" });
+    if (!user || !isPasswordCorrect) {
+      return res.status(400).json({ error: "Invalid Username or Password" });
     }
 
     generateTokenAndSetCookie(user._id, res);
 
-    res.status(200).json({
+    return res.status(200).json({
       _id: user._id,
       fullName: user.fullName,
       userName: user.userName,
@@ -81,17 +93,16 @@ export const login = async (req, res) => {
     });
   } catch (error) {
     console.log("Error In Login Controller", error.message);
-    res.status(500).json({ error: "Internal Server Error" });
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
 
 export const logout = (req, res) => {
   try {
-    res.cookie("jwt", "", {maxAge: 0});
-    res.status(200).json({message: "You Have Been Logout"})
+    res.cookie("jwt", "", { maxAge: 0 });
+    return res.status(200).json({ message: "You Have Been Logout" });
   } catch (error) {
     console.log("Error In Logout Controller", error.message);
-    res.status(500).json({error: "Internal Server Error"})
-    
+    return res.status(500).json({ error: "Internal Server Error" });
   }
 };
