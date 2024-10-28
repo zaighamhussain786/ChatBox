@@ -15,6 +15,7 @@ const Conversations = ({ search }) => {
   return (
     <>
       <div className="divider p-0 m-0 mt-0 "></div>
+      {loading && <div className=" w-full text-red-500 flex items-center justify-center "> <div className="loading loading-spinner"></div> </div> }
       {searchFilteredUsers &&
         searchFilteredUsers.length > 0 &&
         searchFilteredUsers.map((conversation) => (

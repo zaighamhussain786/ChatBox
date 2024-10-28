@@ -14,6 +14,7 @@ export const SocketContextProvider = ({ children }) => {
   const { authUser } = useAuthContext();
 
   useEffect(() => {
+
     if (authUser) {
       const socket = io("wss://chatbox-u3x5.onrender.com", {
         query: {
