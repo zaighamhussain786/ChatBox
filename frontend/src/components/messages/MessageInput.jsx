@@ -27,6 +27,7 @@ const MessageInput = () => {
 
         <div className=" absolute text-red-500 h-full inset-y-0 4xs:end-2 md:end-3 flex items-center justify-center p-0 m-0 ">
           <button
+            disabled={loading}
             type="submit"
             className=" p-1 items-center m-0 bg-gray-700 text-center border-solid rounded-full "
           >

@@ -62,11 +62,11 @@ const Login = () => {
             </Link>
           </span>
           <div>
-            <button className="btn btn-block font-bold p-0 mt-2 bg-red-500 text-gray-300 btn-error hover:text-red-500 hover:bg-gray-600 ">
+            <button disabled={loading} className="btn btn-block font-bold p-0 mt-2 bg-red-500 text-gray-300 btn-error hover:text-red-500 hover:bg-gray-600 ">
               {!loading ? (
                 "Login"
               ) : (
-                <span className="loading loading-spinner text-red-500"></span>
+                <span className="loading loading-spinner "></span>
               )}
             </button>
           </div>
