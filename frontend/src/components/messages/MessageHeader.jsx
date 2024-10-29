@@ -24,7 +24,7 @@ const MessageHeader = ({ isMobile }) => {
           </div>
         </div>
         <div className="flex items-center font-bold text-gray-300">
-          <p className="truncate 4xs:w-20 3xs:w-36 2xs:w-60 md:w-96 ">
+          <p className="truncate 4xs:w-20 3xs:w-36 2xs:w-48 xs:w-60 md:w-96 ">
             {selectedConversation.fullName}
           </p>
         </div>
