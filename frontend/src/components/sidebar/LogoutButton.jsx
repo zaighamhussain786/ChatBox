@@ -9,7 +9,7 @@ const LogoutButton = () => {
     <div
       disabled={loading}
       onClick={logout}
-      className="btn btn-circle z-10 flex items-center justify-center text-red-500 bg-inherit hover:bg-red-500 hover:text-gray-300 m-0 p-0 fixed left-4 bottom-4 "
+      className="btn btn-circle z-10 flex items-center justify-center text-red-500 bg-inherit hover:bg-red-500 hover:text-gray-300 m-0 p-0 fixed left-4 bottom-4 disabled:bg-red-500 disabled:text-gray-300 disabled:hover:text-red-500 disabled:hover:bg-gray-600 "
     >
       {!loading ? (
         <BiLogOut size={24} className="outline-none" />
