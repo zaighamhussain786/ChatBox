@@ -24,7 +24,7 @@ const SearchInput = ({ onSearch }) => {
           autoComplete="off"
           value={search}
           onChange={handleInputChange}
-          className="  w-full 4xs:h-8 md:h-12 rounded-l-2xl rounded-r-none input bg-slate-600 text-gray-300 input-bordered"
+          className="  w-full 4xs:h-8 md:h-12 outline-none rounded-l-2xl rounded-r-none input bg-slate-600 text-gray-300 input-bordered"
         />
         <button
           type="submit"

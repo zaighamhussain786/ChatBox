@@ -21,7 +21,7 @@ const Conversation = ({ conversation }) => {
           </div>
         </div>
         <div className="flex flex-1 items-center font-bold text-gray-300">
-          <p className="truncate 4xs:w-16 3xs:w-36 md:w-56 ">
+          <p className="truncate 4xs:w-16 3xs:w-36 2xs:w-48 md:w-56 ">
             {conversation.fullName}
           </p>
         </div>

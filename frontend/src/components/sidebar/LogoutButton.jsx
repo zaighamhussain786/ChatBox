@@ -13,7 +13,7 @@ const LogoutButton = () => {
       {!loading ? (
         <BiLogOut size={24} className="outline-none" />
       ) : (
-        <span className="loading loading-spinner text-red-500"></span>
+        <span className="loading loading-spinner text-gray-300"></span>
       )}
     </div>
   );
